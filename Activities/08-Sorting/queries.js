@@ -11,14 +11,14 @@
 
 // 1. Show them how to sort by id:
 // The id contains a timestamp, so sorting by id will sort by when they were entered to the database.
-db.animals.find().sort({_id:1})
-db.animals.find().sort({_id:-1})
+db.animals.find().sort({_id:1}).pretty()  // ascending
+db.animals.find().sort({_id:-1}).pretty() // descending
 
-// 2. Show them how to sort by an integer - numlegs:
-db.animals.find().sort({numlegs:1})
-db.animals.find().sort({numlegs:-1})
+// 2. Show them how to sort by an integer by weight:
+db.animals.find().sort({weight:1}).pretty()
+db.animals.find().sort({weight:-1}).pretty()
 
 
 // 3. Show them how to sort by a string - class:
-db.animals.find().sort({class:1})
-db.animals.find().sort({class:-1})
+db.animals.find().sort({class:1}).pretty()
+db.animals.find().sort({class:-1}).pretty()

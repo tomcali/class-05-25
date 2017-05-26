@@ -46,7 +46,23 @@ app.get("/all", function(req, res) {
   });
 });
 
+//  NEVER GOT THIS TO WORK
 // 2: Name: Sort results by name in ascending order, in a json
+app.get("/name", function(req, res) {
+    // Query: In our database, go to the animals collection, then "find" everything
+    db.animals.sort({'name': 1}.pretty(), function(err, data) {
+        // Log any errors if the server encounters one
+        if (err) {
+            return console.log(err);
+        }
+        // Otherwise, send the result of this query to the browser
+        else {
+            res.json(data)
+        }
+    });
+});
+
+
 // 3: Weight: Sort results by weight in descending order, in a json
 
 
@@ -54,3 +70,7 @@ app.get("/all", function(req, res) {
 app.listen(3000, function() {
   console.log("App running on port 3000!");
 });
+
+// example commands to execute in the query window in browser
+// http://localhost:3000/all  // to list all the data
+// http://localhost:3000/
